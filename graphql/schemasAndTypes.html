@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>架构和类型(Schemas and Types) | NodeJS</title>
+    <meta name="description" content="Learn Cookbook">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.34788bb2.css" as="style"><link rel="preload" href="/assets/js/app.12ca0aa8.js" as="script"><link rel="preload" href="/assets/js/2.74bffc86.js" as="script"><link rel="preload" href="/assets/js/185.763d219b.js" as="script"><link rel="prefetch" href="/assets/js/10.b17cd786.js"><link rel="prefetch" href="/assets/js/100.49143f76.js"><link rel="prefetch" href="/assets/js/101.58f5e966.js"><link rel="prefetch" href="/assets/js/102.0d1b5f3c.js"><link rel="prefetch" href="/assets/js/103.d2dfeb4d.js"><link rel="prefetch" href="/assets/js/104.221dfde0.js"><link rel="prefetch" href="/assets/js/105.89693a0d.js"><link rel="prefetch" href="/assets/js/106.dd9b2874.js"><link rel="prefetch" href="/assets/js/107.b128334b.js"><link rel="prefetch" href="/assets/js/108.d0fceeff.js"><link rel="prefetch" href="/assets/js/109.a36abbdb.js"><link rel="prefetch" href="/assets/js/11.3a5bf6a3.js"><link rel="prefetch" href="/assets/js/110.24de8f58.js"><link rel="prefetch" href="/assets/js/111.ad2322c5.js"><link rel="prefetch" href="/assets/js/112.ebf5a5e6.js"><link rel="prefetch" href="/assets/js/113.945153eb.js"><link rel="prefetch" href="/assets/js/114.89fb0b54.js"><link rel="prefetch" href="/assets/js/115.32747b75.js"><link rel="prefetch" href="/assets/js/116.2ac5709d.js"><link rel="prefetch" href="/assets/js/117.33f44883.js"><link rel="prefetch" href="/assets/js/118.080ca422.js"><link rel="prefetch" href="/assets/js/119.3696781e.js"><link rel="prefetch" href="/assets/js/12.49c205ea.js"><link rel="prefetch" href="/assets/js/120.8629050e.js"><link rel="prefetch" href="/assets/js/121.c541c819.js"><link rel="prefetch" href="/assets/js/122.0beeab62.js"><link rel="prefetch" href="/assets/js/123.f4aacc83.js"><link rel="prefetch" href="/assets/js/124.7b0ddfcc.js"><link rel="prefetch" href="/assets/js/125.b8173440.js"><link rel="prefetch" href="/assets/js/126.9ee9486f.js"><link rel="prefetch" href="/assets/js/127.6c6aee84.js"><link rel="prefetch" href="/assets/js/128.8100734d.js"><link rel="prefetch" href="/assets/js/129.adb74c9f.js"><link rel="prefetch" href="/assets/js/13.b12048d4.js"><link rel="prefetch" href="/assets/js/130.7dbfe596.js"><link rel="prefetch" href="/assets/js/131.a32c075c.js"><link rel="prefetch" href="/assets/js/132.6a0aa273.js"><link rel="prefetch" href="/assets/js/133.52f806e2.js"><link rel="prefetch" href="/assets/js/134.a196478b.js"><link rel="prefetch" href="/assets/js/135.83dc683e.js"><link rel="prefetch" href="/assets/js/136.e31ffd18.js"><link rel="prefetch" href="/assets/js/137.c9dbde0b.js"><link rel="prefetch" href="/assets/js/138.4d1cd5eb.js"><link rel="prefetch" href="/assets/js/139.432cf5af.js"><link rel="prefetch" href="/assets/js/14.daaf0416.js"><link rel="prefetch" href="/assets/js/140.f86409f6.js"><link rel="prefetch" href="/assets/js/141.3abe86ad.js"><link rel="prefetch" href="/assets/js/142.4f6fc92f.js"><link rel="prefetch" href="/assets/js/143.1535cab9.js"><link rel="prefetch" href="/assets/js/144.eefe99f6.js"><link rel="prefetch" href="/assets/js/145.0a2bc4ed.js"><link rel="prefetch" href="/assets/js/146.0e7b17e8.js"><link rel="prefetch" href="/assets/js/147.aecc5e52.js"><link rel="prefetch" href="/assets/js/148.55697156.js"><link rel="prefetch" href="/assets/js/149.78d2096d.js"><link rel="prefetch" href="/assets/js/15.45e9a802.js"><link rel="prefetch" href="/assets/js/150.e6c87191.js"><link rel="prefetch" href="/assets/js/151.a8009d6e.js"><link rel="prefetch" href="/assets/js/152.63d8fdec.js"><link rel="prefetch" href="/assets/js/153.3bfc0798.js"><link rel="prefetch" href="/assets/js/154.65d2ca87.js"><link rel="prefetch" href="/assets/js/155.6eeb8114.js"><link rel="prefetch" href="/assets/js/156.651636fd.js"><link rel="prefetch" href="/assets/js/157.91eccdc2.js"><link rel="prefetch" href="/assets/js/158.dbf5b9d8.js"><link rel="prefetch" href="/assets/js/159.823f0880.js"><link rel="prefetch" href="/assets/js/16.e71df8d4.js"><link rel="prefetch" href="/assets/js/160.cfed749a.js"><link rel="prefetch" href="/assets/js/161.84daf4cb.js"><link rel="prefetch" href="/assets/js/162.ceb37edb.js"><link rel="prefetch" href="/assets/js/163.d225972f.js"><link rel="prefetch" href="/assets/js/164.74f77e4a.js"><link rel="prefetch" href="/assets/js/165.e158fe5d.js"><link rel="prefetch" href="/assets/js/166.c41de610.js"><link rel="prefetch" href="/assets/js/167.7df65d3f.js"><link rel="prefetch" href="/assets/js/168.919437c8.js"><link rel="prefetch" href="/assets/js/169.9bcafe9d.js"><link rel="prefetch" href="/assets/js/17.7dc7c03f.js"><link rel="prefetch" href="/assets/js/170.f33f16fb.js"><link rel="prefetch" href="/assets/js/171.59cd7a83.js"><link rel="prefetch" href="/assets/js/172.e059a6f4.js"><link rel="prefetch" href="/assets/js/173.811a1b3e.js"><link rel="prefetch" href="/assets/js/174.e8d72986.js"><link rel="prefetch" href="/assets/js/175.3ee31f58.js"><link rel="prefetch" href="/assets/js/176.437ff1a6.js"><link rel="prefetch" href="/assets/js/177.0d04f570.js"><link rel="prefetch" href="/assets/js/178.45296cb6.js"><link rel="prefetch" href="/assets/js/179.4176b858.js"><link rel="prefetch" href="/assets/js/18.7d64b721.js"><link rel="prefetch" href="/assets/js/180.a2c20ea9.js"><link rel="prefetch" href="/assets/js/181.77390ab1.js"><link rel="prefetch" href="/assets/js/182.8ebcfdac.js"><link rel="prefetch" href="/assets/js/183.8a6b9bc8.js"><link rel="prefetch" href="/assets/js/184.a8587cd6.js"><link rel="prefetch" href="/assets/js/186.d1c67c82.js"><link rel="prefetch" href="/assets/js/187.d0379152.js"><link rel="prefetch" href="/assets/js/188.3935a5a7.js"><link rel="prefetch" href="/assets/js/189.d40e35ad.js"><link rel="prefetch" href="/assets/js/19.1f322990.js"><link rel="prefetch" href="/assets/js/190.f5168c2b.js"><link rel="prefetch" href="/assets/js/191.00fd22a9.js"><link rel="prefetch" href="/assets/js/192.bb76bc33.js"><link rel="prefetch" href="/assets/js/193.0028d6ac.js"><link rel="prefetch" href="/assets/js/194.504c913a.js"><link rel="prefetch" href="/assets/js/195.6d91833a.js"><link rel="prefetch" href="/assets/js/20.520e4112.js"><link rel="prefetch" href="/assets/js/21.1da5f168.js"><link rel="prefetch" href="/assets/js/22.d42c6e1f.js"><link rel="prefetch" href="/assets/js/23.158333f0.js"><link rel="prefetch" href="/assets/js/24.4933f40a.js"><link rel="prefetch" href="/assets/js/25.057c428c.js"><link rel="prefetch" href="/assets/js/26.de289859.js"><link rel="prefetch" href="/assets/js/27.b14ef5da.js"><link rel="prefetch" href="/assets/js/28.b1329e69.js"><link rel="prefetch" href="/assets/js/29.49d46c7a.js"><link rel="prefetch" href="/assets/js/3.9fae61cb.js"><link rel="prefetch" href="/assets/js/30.83d321ec.js"><link rel="prefetch" href="/assets/js/31.65f56091.js"><link rel="prefetch" href="/assets/js/32.78fcc539.js"><link rel="prefetch" href="/assets/js/33.87e5077b.js"><link rel="prefetch" href="/assets/js/34.a4bf065f.js"><link rel="prefetch" href="/assets/js/35.b81d32e6.js"><link rel="prefetch" href="/assets/js/36.9ef245a6.js"><link rel="prefetch" href="/assets/js/37.4e2664a6.js"><link rel="prefetch" href="/assets/js/38.f8b21767.js"><link rel="prefetch" href="/assets/js/39.294b2e23.js"><link rel="prefetch" href="/assets/js/4.554dccb8.js"><link rel="prefetch" href="/assets/js/40.a35c8bd3.js"><link rel="prefetch" href="/assets/js/41.d60f7eb3.js"><link rel="prefetch" href="/assets/js/42.30f5ce46.js"><link rel="prefetch" href="/assets/js/43.101904fa.js"><link rel="prefetch" href="/assets/js/44.475772ec.js"><link rel="prefetch" href="/assets/js/45.58a6227c.js"><link rel="prefetch" href="/assets/js/46.045cad94.js"><link rel="prefetch" href="/assets/js/47.63628bb5.js"><link rel="prefetch" href="/assets/js/48.4f86f4a6.js"><link rel="prefetch" href="/assets/js/49.92a2af24.js"><link rel="prefetch" href="/assets/js/5.bfcb02d1.js"><link rel="prefetch" href="/assets/js/50.b7fd8454.js"><link rel="prefetch" href="/assets/js/51.9bbf3588.js"><link rel="prefetch" href="/assets/js/52.53f6da60.js"><link rel="prefetch" href="/assets/js/53.b415231c.js"><link rel="prefetch" href="/assets/js/54.53388fc4.js"><link rel="prefetch" href="/assets/js/55.fc24bc21.js"><link rel="prefetch" href="/assets/js/56.9b3c2535.js"><link rel="prefetch" href="/assets/js/57.ba13dd55.js"><link rel="prefetch" href="/assets/js/58.9a4c6a43.js"><link rel="prefetch" href="/assets/js/59.96e435e7.js"><link rel="prefetch" href="/assets/js/6.95fccca8.js"><link rel="prefetch" href="/assets/js/60.d17a46b6.js"><link rel="prefetch" href="/assets/js/61.0860ef3f.js"><link rel="prefetch" href="/assets/js/62.713860bc.js"><link rel="prefetch" href="/assets/js/63.38e7edcf.js"><link rel="prefetch" href="/assets/js/64.176f8bbb.js"><link rel="prefetch" href="/assets/js/65.903f4b50.js"><link rel="prefetch" href="/assets/js/66.1c5277a5.js"><link rel="prefetch" href="/assets/js/67.abfce232.js"><link rel="prefetch" href="/assets/js/68.37814697.js"><link rel="prefetch" href="/assets/js/69.c77c3c67.js"><link rel="prefetch" href="/assets/js/7.d035404c.js"><link rel="prefetch" href="/assets/js/70.742159c8.js"><link rel="prefetch" href="/assets/js/71.00f8f464.js"><link rel="prefetch" href="/assets/js/72.c8145491.js"><link rel="prefetch" href="/assets/js/73.edd94acd.js"><link rel="prefetch" href="/assets/js/74.deb52f36.js"><link rel="prefetch" href="/assets/js/75.5969aaa2.js"><link rel="prefetch" href="/assets/js/76.24433b28.js"><link rel="prefetch" href="/assets/js/77.e1a029bc.js"><link rel="prefetch" href="/assets/js/78.ec41973a.js"><link rel="prefetch" href="/assets/js/79.a8436b64.js"><link rel="prefetch" href="/assets/js/8.d1c35f37.js"><link rel="prefetch" href="/assets/js/80.70d752cd.js"><link rel="prefetch" href="/assets/js/81.5392aaa4.js"><link rel="prefetch" href="/assets/js/82.87f6938e.js"><link rel="prefetch" href="/assets/js/83.9efaf755.js"><link rel="prefetch" href="/assets/js/84.d0bba92a.js"><link rel="prefetch" href="/assets/js/85.f8f968c5.js"><link rel="prefetch" href="/assets/js/86.9e5296f6.js"><link rel="prefetch" href="/assets/js/87.8774d4bd.js"><link rel="prefetch" href="/assets/js/88.7513e6b5.js"><link rel="prefetch" href="/assets/js/89.421b5237.js"><link rel="prefetch" href="/assets/js/9.220b3eb6.js"><link rel="prefetch" href="/assets/js/90.47497ac9.js"><link rel="prefetch" href="/assets/js/91.20e7b656.js"><link rel="prefetch" href="/assets/js/92.ab742aa0.js"><link rel="prefetch" href="/assets/js/93.6f6eef2e.js"><link rel="prefetch" href="/assets/js/94.b8ff20d8.js"><link rel="prefetch" href="/assets/js/95.e97d80de.js"><link rel="prefetch" href="/assets/js/96.7f9bfe96.js"><link rel="prefetch" href="/assets/js/97.5bc5b95e.js"><link rel="prefetch" href="/assets/js/98.07280354.js"><link rel="prefetch" href="/assets/js/99.be9ded95.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.34788bb2.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">NodeJS</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/core/" class="nav-link">Node</a></div><div class="nav-item"><a href="/packageManager/" class="nav-link">Manager</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Nestjs" class="dropdown-title"><span class="title">Nestjs</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/framework/nestjs/office-docs/" class="nav-link">NestJS 官方文档</a></li><li class="dropdown-item"><!----> <a href="/nestjs/source-codes/" class="nav-link">NestJS 源码</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="framework" class="dropdown-title"><span class="title">framework</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/framework/egg/" class="nav-link">egg</a></li><li class="dropdown-item"><!----> <a href="/framework/express/" class="nav-link">express</a></li><li class="dropdown-item"><!----> <a href="/framework/fasitify/" class="nav-link">fasitify</a></li><li class="dropdown-item"><!----> <a href="/framework/hapi/" class="nav-link">hapi</a></li><li class="dropdown-item"><!----> <a href="/framework/koa/" class="nav-link">koa</a></li><li class="dropdown-item"><!----> <a href="/framework/midway/" class="nav-link">midway</a></li></ul></div></div><div class="nav-item"><a href="/graphql/" class="nav-link router-link-active">graphql</a></div><div class="nav-item"><a href="/TypeORM/" class="nav-link">TypeORM</a></div><div class="nav-item"><a href="/branchmark/" class="nav-link">性能</a></div><div class="nav-item"><a href="/vendor/" class="nav-link">第三方包</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/core/" class="nav-link">Node</a></div><div class="nav-item"><a href="/packageManager/" class="nav-link">Manager</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Nestjs" class="dropdown-title"><span class="title">Nestjs</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/framework/nestjs/office-docs/" class="nav-link">NestJS 官方文档</a></li><li class="dropdown-item"><!----> <a href="/nestjs/source-codes/" class="nav-link">NestJS 源码</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="framework" class="dropdown-title"><span class="title">framework</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/framework/egg/" class="nav-link">egg</a></li><li class="dropdown-item"><!----> <a href="/framework/express/" class="nav-link">express</a></li><li class="dropdown-item"><!----> <a href="/framework/fasitify/" class="nav-link">fasitify</a></li><li class="dropdown-item"><!----> <a href="/framework/hapi/" class="nav-link">hapi</a></li><li class="dropdown-item"><!----> <a href="/framework/koa/" class="nav-link">koa</a></li><li class="dropdown-item"><!----> <a href="/framework/midway/" class="nav-link">midway</a></li></ul></div></div><div class="nav-item"><a href="/graphql/" class="nav-link router-link-active">graphql</a></div><div class="nav-item"><a href="/TypeORM/" class="nav-link">TypeORM</a></div><div class="nav-item"><a href="/branchmark/" class="nav-link">性能</a></div><div class="nav-item"><a href="/vendor/" class="nav-link">第三方包</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>架构和类型(Schemas and Types)</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/graphql/schemasAndTypes.html#类型系统-type-system" class="sidebar-link">类型系统 Type System</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/graphql/schemasAndTypes.html#类型语言-type-language" class="sidebar-link">类型语言 Type Language</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/graphql/schemasAndTypes.html#对象类型和字段-object-types-and-fileds" class="sidebar-link">对象类型和字段 Object Types and Fileds</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/graphql/schemasAndTypes.html#参数-arguments" class="sidebar-link">参数 Arguments</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/graphql/schemasAndTypes.html#查询和突变类型-the-query-and-mutation-types" class="sidebar-link">查询和突变类型 The Query and Mutation Types</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/graphql/schemasAndTypes.html#标量类型-scalar-types" class="sidebar-link">标量类型 Scalar Types</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/graphql/schemasAndTypes.html#枚举类型-enumeration-types" class="sidebar-link">枚举类型 Enumeration Types</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/graphql/schemasAndTypes.html#列表和非空-lists-and-non-null" class="sidebar-link">列表和非空 Lists and Non-Null</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/graphql/schemasAndTypes.html#接口-interfaces" class="sidebar-link">接口 interfaces</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/graphql/schemasAndTypes.html#联合类型-union-types" class="sidebar-link">联合类型 Union Types</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/graphql/schemasAndTypes.html#输入类型-input-types" class="sidebar-link">输入类型 Input Types</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/graphql/schemasAndTypes.html#输入类型" class="sidebar-link">输入类型</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><p>在此页面上， 你将学到有关 GraphQL 类型系统以及如何描述可以查询哪些数据的所有知识、由于 GraphQL 可以与任何后端框架或者编程语言一起使用，因此我们将远离实现特定的细节， 仅仅讨论概念。</p> <h2 id="类型系统-type-system"><a href="#类型系统-type-system" class="header-anchor">#</a> 类型系统 Type System</h2> <p>如果您以前看过 GraphQL 查询，你就会知道 GraphQL 查询语言基础上是关于选择对象的字段的。因此下面查询：</p> <div class="language-graphql extra-class"><pre class="language-graphql"><code><span class="token punctuation">{</span>
+  hero <span class="token punctuation">{</span>
+    name
+    appearsIn
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;data&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;hero&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;R2d-2&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;appearsIn&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">&quot;NEWHOPE&quot;</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;EMPIRE&quot;</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;JEDI&quot;</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ul><li>从一个特殊的“根”对象开始</li> <li>我们选择英雄领域</li> <li>对于英雄返回的对象，我们选择名称并出现在字段中</li></ul> <p>由于GraphQL查询的形状与结果紧密匹配，因此您可以在不了解服务器的情况下预测查询将返回的内容。但是，准确描述我们需要的数据很有用-我们可以选择哪些字段？它们可能返回哪种对象？这些子对象上有哪些字段可用？这就是架构的用武之地。</p> <p>每个GraphQL服务都定义了一组类型，这些类型完全描述了您可以在该服务上查询的一组可能的数据。然后，当查询进入时，将根据该架构对其进行验证和执行。</p> <h2 id="类型语言-type-language"><a href="#类型语言-type-language" class="header-anchor">#</a> 类型语言 Type Language</h2> <p>GraphQL服务可以用任何语言编写。由于我们不能依靠特定的编程语言语法（例如JavaScript）来谈论GraphQL模式，因此我们将定义自己的简单语言。我们将使用“ GraphQL模式语言”-与查询语言相似，并允许我们以与语言无关的方式来讨论GraphQL模式。</p> <h2 id="对象类型和字段-object-types-and-fileds"><a href="#对象类型和字段-object-types-and-fileds" class="header-anchor">#</a> 对象类型和字段 Object Types and Fileds</h2> <p>GraphQL架构的最基本组成部分是对象类型，它们仅表示您可以从服务中获取的一种对象以及其具有的字段。在GraphQL模式语言中，我们可以这样表示：</p> <div class="language-graphql extra-class"><pre class="language-graphql"><code><span class="token keyword">type</span> <span class="token class-name">Character</span> <span class="token punctuation">{</span>
+  <span class="token attr-name">name</span><span class="token punctuation">:</span> String<span class="token operator">!</span>
+  <span class="token attr-name">appearsIn</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>Episode<span class="token operator">!</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>该语言具有很好的可读性，但让我们仔细研究一下，以便我们可以使用共享的词汇表：</p> <p>字符是GraphQL对象类型，这意味着它是具有某些字段的类型。模式中的大多数类型将是对象类型。
+名称和出现在是字符类型上的字段。这意味着name和appearIn是在对Character类型进行操作的GraphQL查询的任何部分中唯一可以出现的字段。
+字符串是内置标量类型之一-这些类型可以解析为单个标量对象，并且在查询中不能具有子选择。我们将在以后再讨论标量类型。
+串！表示该字段不可为空，这意味着GraphQL服务承诺在查询该字段时始终为您提供一个值。在类型语言中，我们将用感叹号表示。
+[插曲！]！表示情节对象的数组。由于它也是不可为空的，因此在查询外观字段时始终可以期待一个数组（包含零个或多个项目）。从情节开始！也是不可为空的，您总是可以期望数组的每个项目都是Episode对象。
+现在您知道了GraphQL对象类型是什么样，以及如何阅读GraphQL类型语言的基础。</p> <h2 id="参数-arguments"><a href="#参数-arguments" class="header-anchor">#</a> 参数 Arguments</h2> <p>GraphQL对象类型上的每个字段可以有零个或多个参数，例如下面的length字段：</p> <div class="language-graphql extra-class"><pre class="language-graphql"><code><span class="token keyword">type</span> <span class="token class-name">Starship</span> <span class="token punctuation">{</span>
+  <span class="token attr-name">id</span><span class="token punctuation">:</span> ID<span class="token operator">!</span>
+  <span class="token attr-name">name</span><span class="token punctuation">:</span> String<span class="token operator">!</span>
+  <span class="token attr-name">length</span><span class="token punctuation">(</span><span class="token attr-name">unit</span><span class="token punctuation">:</span> lengthUnit <span class="token operator">=</span> <span class="token constant">METER</span><span class="token punctuation">)</span><span class="token punctuation">:</span> Float
+<span class="token punctuation">}</span>
+</code></pre></div><p>所有参数均已命名。与JavaScript和Python等语言的函数采用有序参数列表不同，GraphQL中的所有参数都是按名称专门传递的。在这种情况下，长度字段具有一个已定义的自变量unit。</p> <p>参数可以是必需的，也可以是可选的。当参数为可选参数时，我们可以定义一个默认值-如果未传递单位参数，则默认情况下它将设置为METER。</p> <h2 id="查询和突变类型-the-query-and-mutation-types"><a href="#查询和突变类型-the-query-and-mutation-types" class="header-anchor">#</a> 查询和突变类型 The Query and Mutation Types</h2> <p>模式中的大多数类型只是普通的对象类型，但是模式中有两种特殊的类型：</p> <div class="language-graphql extra-class"><pre class="language-graphql"><code><span class="token keyword">schema</span> <span class="token punctuation">{</span>
+  <span class="token attr-name">query</span><span class="token punctuation">:</span> Query
+  <span class="token attr-name">mutation</span><span class="token punctuation">:</span> Mutation
+<span class="token punctuation">}</span>
+</code></pre></div><p>每个GraphQL服务都具有查询类型，并且可以具有或不具有突变类型。这些类型与常规对象类型相同，但是它们很特殊，因为它们定义了每个GraphQL查询的入口点。因此，如果您看到如下查询：</p> <div class="language-graphql extra-class"><pre class="language-graphql"><code><span class="token keyword">query</span> <span class="token punctuation">{</span>
+  hero <span class="token punctuation">{</span>
+    name
+  <span class="token punctuation">}</span>
+  driod <span class="token punctuation">(</span><span class="token attr-name">id</span><span class="token punctuation">:</span> <span class="token string">&quot;2000&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    name
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;data&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;hero&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;R2-D2&quot;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;droid&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>
+      <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> &quot;C<span class="token number">-3</span>P<span class="token number">0</span><span class="token operator">:</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>这意味着GraphQL服务需要具有包含hero和droid字段的Query类型：</p> <div class="language-garphhql extra-class"><pre class="language-text"><code>type Query {
+  hero(episode: Episode): Character
+  driod(id: Id!): Droid
+}
+</code></pre></div><p>突变以类似的方式工作-您在“突变”类型上定义字段，这些字段可用作您可以在查询中调用的根突变字段。</p> <p>重要的是要记住，除了作为架构“入口点”的特殊状态外，Query和Mutation类型与任何其他GraphQL对象类型相同，并且它们的字段完全相同。</p> <h2 id="标量类型-scalar-types"><a href="#标量类型-scalar-types" class="header-anchor">#</a> 标量类型 Scalar Types</h2> <p>GraphQL对象类型具有名称和字段，但是在某些时候，这些字段必须解析为一些具体数据。这就是标量类型出现的地方：它们代表查询的叶子。</p> <p>在以下查询中，name和appearIn字段将解析为标量类型：</p> <div class="language-graphql extra-class"><pre class="language-graphql"><code><span class="token punctuation">{</span>
+  hero <span class="token punctuation">{</span>
+    name
+    appearsIn
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;data&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;hero&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;R2-D2&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;appearsIn&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">&quot;NEWHOPE&quot;</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;EMPIRE&quot;</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;JEDI&quot;</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>我们知道这一点是因为这些字段没有任何子字段-它们是查询的叶子。</p> <p>GraphQL提供了一组默认的标量类型：</p> <ul><li>Int 一个有符号的整形</li> <li>Float 有符号双精度浮点值。</li> <li>String 一个 UTF-8 字符序列</li> <li>Boolean true or false</li> <li>ID ID标量类型表示唯一的标识符，通常用于重新获取对象或用作缓存的键。 ID类型的序列化方式与String相同；但是，将其定义为ID表示它不是人类可读的。</li></ul> <p>在大多数GraphQL服务实现中，还有一种方法可以指定自定义标量类型。例如，我们可以定义一个Date类型：</p> <div class="language-graphql extra-class"><pre class="language-graphql"><code><span class="token keyword">scalar</span> <span class="token class-name">Date</span>
+</code></pre></div><p>然后由我们的实现来定义如何对该类型进行序列化，反序列化和验证。例如，您可以指定“日期”类型应始终序列化为整数时间戳，并且您的客户端应该知道期望任何日期字段使用该格式。</p> <h2 id="枚举类型-enumeration-types"><a href="#枚举类型-enumeration-types" class="header-anchor">#</a> 枚举类型 Enumeration Types</h2> <p>枚举类型也称为枚举，是一种特殊类型的标量，仅限于一组特定的允许值。这使您可以：</p> <ul><li>验证此类型的任何参数是否为允许的值之一</li> <li>通过类型系统进行通信，以使字段始终是一组有限值中的一个</li></ul> <p>这是GraphQL模式语言中的枚举定义的样子：</p> <div class="language-graphql extra-class"><pre class="language-graphql"><code><span class="token keyword">enum</span> <span class="token class-name">Episode</span> <span class="token punctuation">{</span>
+  <span class="token constant">NEWHOPE</span>
+  <span class="token constant">EMPIRE</span>
+  <span class="token constant">JEDI</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>这意味着，无论我们在架构中使用哪种类型的Episode，我们都希望它完全是NEWHOPE，EMPIRE或JEDI之一。</p> <p>请注意，使用各种语言的GraphQL服务实现将具有其自己的特定于语言的方式来处理枚举。在支持枚举为一等公民的语言中，实现可能会利用这种优势。在不支持枚举的JavaScript之类的语言中，这些值可能会在内部映射到一组整数。但是，这些详细信息不会泄漏给客户端，客户端可以完全根据枚举值的字符串名称进行操作。</p> <h2 id="列表和非空-lists-and-non-null"><a href="#列表和非空-lists-and-non-null" class="header-anchor">#</a> 列表和非空 Lists and Non-Null</h2> <p>对象类型，标量和枚举是您可以在GraphQL中定义的唯一类型。但是，当您在架构的其他部分或查询变量声明中使用类型时，可以应用影响这些值验证的其他类型修饰符。让我们看一个例子：</p> <div class="language-graphql extra-class"><pre class="language-graphql"><code><span class="token keyword">type</span> <span class="token class-name">Character</span> <span class="token punctuation">{</span>
+  <span class="token attr-name">name</span><span class="token punctuation">:</span> String<span class="token operator">!</span>
+  <span class="token attr-name">appearsIn</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>Episode<span class="token punctuation">]</span><span class="token operator">!</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>在这里，我们使用String类型，并通过添加感叹号！将其标记为Non-Null。在类型名称之后。这意味着我们的服务器始终希望为该字段返回一个非null值，如果最终得到一个null值，该值实际上会触发GraphQL执行错误，让客户端知道出了点问题。</p> <p>在为字段定义参数时，也可以使用Non-Null类型修饰符，如果在GraphQL字符串或变量中将空值作为该参数传递，则将导致GraphQL服务器返回验证错误。</p> <div class="language-graphql extra-class"><pre class="language-graphql"><code><span class="token keyword">query</span> Droid<span class="token punctuation">(</span><span class="token variable">$id</span><span class="token punctuation">:</span> ID?<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  droid <span class="token punctuation">(</span><span class="token attr-name">id</span><span class="token punctuation">:</span> <span class="token variable">$id</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    name
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+// variable
+<span class="token punctuation">{</span>
+  <span class="token string">&quot;id&quot;</span><span class="token punctuation">:</span> null
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;errors&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">&quot;message&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Variable \&quot;$id\&quot; of required type \&quot;ID!\&quot; was not provided.&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;loctions&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">&quot;line&quot;</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;column&quot;</span><span class="token operator">:</span> <span class="token number">17</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>列表的工作方式类似：我们可以使用类型修饰符将类型标记为列表，这表明该字段将返回该类型的数组。在模式语言中，这是通过将类型包装在方括号[和]中来表示的。对于参数，其工作原理相同，其中验证步骤将期望该值的数组。</p> <p>Non-Null和List修饰符可以组合使用。例如，您可以具有一个非空字符串列表：</p> <div class="language-graphql extra-class"><pre class="language-graphql"><code><span class="token attr-name">myField</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>String<span class="token punctuation">]</span>
+</code></pre></div><p>这意味着列表本身可以为null，但不能有任何null成员。例如，在JSON中：</p> <div class="language-graphql extra-class"><pre class="language-graphql"><code><span class="token attr-name">myField</span><span class="token punctuation">:</span> null
+<span class="token attr-name">myField</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token attr-name">myField</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>'a'<span class="token punctuation">,</span> 'b'<span class="token punctuation">]</span>
+<span class="token attr-name">myField</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>'a'<span class="token punctuation">,</span> null<span class="token punctuation">,</span> 'b'<span class="token punctuation">]</span>
+</code></pre></div><p>现在，假设我们定义了一个字符串的非空列表：</p> <div class="language-graphql extra-class"><pre class="language-graphql"><code><span class="token attr-name">myField</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>String<span class="token punctuation">]</span><span class="token operator">!</span>
+</code></pre></div><p>这意味着列表本身不能为空，但它可以包含空值：</p> <div class="language-graphql extra-class"><pre class="language-graphql"><code><span class="token attr-name">myField</span><span class="token punctuation">:</span> null // error
+<span class="token attr-name">myField</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> // valid
+<span class="token attr-name">myField</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>'a'<span class="token punctuation">,</span> 'b'<span class="token punctuation">]</span> // valid
+<span class="token attr-name">myField</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>'a'<span class="token punctuation">,</span> null<span class="token punctuation">,</span> 'b'<span class="token punctuation">]</span> // valid
+</code></pre></div><p>您可以根据需要任意嵌套任意数量的Non-Null和List修饰符。</p> <h2 id="接口-interfaces"><a href="#接口-interfaces" class="header-anchor">#</a> 接口 interfaces</h2> <div class="language-graphql extra-class"><pre class="language-graphql"><code>interfaces Character <span class="token punctuation">{</span>
+  <span class="token attr-name">id</span><span class="token punctuation">:</span> ID<span class="token operator">!</span>
+  <span class="token attr-name">name</span><span class="token punctuation">:</span> String<span class="token operator">!</span>
+  <span class="token attr-name">friends</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>Character<span class="token punctuation">]</span>
+  <span class="token attr-name">appearsIn</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>Episode<span class="token punctuation">]</span><span class="token operator">!</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>这意味着任何实现Character的类型都需要具有这些确切的字段，这些参数和返回类型。</p> <p>例如，以下是一些可能实现Character的类型：</p> <div class="language-graphql extra-class"><pre class="language-graphql"><code><span class="token keyword">type</span> <span class="token class-name">Human</span> <span class="token keyword">implements</span> <span class="token class-name">Character</span> <span class="token punctuation">{</span>
+  id： ID<span class="token operator">!</span>
+  <span class="token attr-name">name</span><span class="token punctuation">:</span> String<span class="token operator">!</span>
+  <span class="token attr-name">friends</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>Character<span class="token punctuation">]</span>
+  <span class="token attr-name">appearsIn</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>Episode<span class="token punctuation">]</span><span class="token operator">!</span>
+  primaryFunction String
+<span class="token punctuation">}</span>
+
+<span class="token keyword">type</span> <span class="token class-name">Droid</span> <span class="token keyword">implements</span> <span class="token class-name">Character</span> <span class="token punctuation">{</span>
+  <span class="token attr-name">id</span><span class="token punctuation">:</span> ID<span class="token operator">!</span>
+  <span class="token attr-name">name</span><span class="token punctuation">:</span> String！
+  <span class="token attr-name">friends</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>Character<span class="token punctuation">]</span>
+  <span class="token attr-name">appearsIn</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>Episode<span class="token punctuation">]</span><span class="token operator">!</span>
+  <span class="token attr-name">primaryFunction</span><span class="token punctuation">:</span> String
+<span class="token punctuation">}</span>
+</code></pre></div><p>您可以看到这两种类型都具有“字符”界面中的所有字段，但是还引入了特定于该特定字符类型的额外字段，totalCredits，starship和primaryFunction。</p> <p>当您要返回一个对象或一组对象时，接口很有用，但是它们可能具有几种不同的类型。</p> <p>例如，请注意以下查询会产生错误:</p> <div class="language-graphql extra-class"><pre class="language-graphql"><code><span class="token keyword">query</span> HeroForEpisode<span class="token punctuation">(</span><span class="token variable">$ep</span><span class="token punctuation">:</span> Episode<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  her<span class="token punctuation">(</span><span class="token attr-name">episode</span><span class="token punctuation">:</span> <span class="token variable">$ep</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    __typename
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+// variable
+<span class="token punctuation">{</span>
+  <span class="token string">&quot;ep&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;JEDI&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;data&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;hero&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;__typename&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Droid&quot;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>hero字段返回类型Character，这意味着它可能是Human或Droid，具体取决于情节参数。在上面的查询中，您只能请求存在于Character接口上的字段，其中不包括primaryFunction。</p> <p>要请求有关特定对象类型的字段，您需要使用内联片段：</p> <div class="language-graphql extra-class"><pre class="language-graphql"><code><span class="token keyword">query</span> HeroForEpisode<span class="token punctuation">(</span><span class="token variable">$ep</span><span class="token punctuation">:</span> Episode<span class="token operator">!</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  hero<span class="token punctuation">(</span>episode <span class="token variable">$ep</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token operator">...</span><span class="token keyword">on</span> <span class="token class-name">Droid</span> <span class="token punctuation">{</span>
+      primaryFunction
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+// variable
+<span class="token punctuation">{</span>
+  <span class="token string">&quot;ep&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;JEDI&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;data&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;hero&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;R2-D2&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;primaryFunction&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Astroch&quot;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>在查询指南的内联片段部分中了解有关此内容的更多信息。</p> <h2 id="联合类型-union-types"><a href="#联合类型-union-types" class="header-anchor">#</a> 联合类型 Union Types</h2> <p>联合类型与接口非常相似，但是它们没有指定类型之间的任何公共字段。</p> <div class="language-graphql extra-class"><pre class="language-graphql"><code><span class="token keyword">union</span> <span class="token class-name">SearchResult</span> <span class="token operator">=</span> Human <span class="token operator">|</span> Droid <span class="token operator">|</span> Starship
+</code></pre></div><p>无论我们在架构中何处返回SearchResult类型，都可能会获得人类，Droid或星际飞船。注意，联合类型的成员必须是具体的对象类型。您不能通过接口或其他联合创建联合类型。</p> <p>在这种情况下，如果查询返回SearchResult联合类型的字段，则需要使用条件片段才能查询所有字段：</p> <div class="language-graphql extra-class"><pre class="language-graphql"><code><span class="token punctuation">{</span>
+  search<span class="token punctuation">(</span><span class="token attr-name">text</span><span class="token punctuation">:</span> <span class="token string">&quot;an&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    __typename
+    <span class="token operator">...</span> <span class="token keyword">on</span> <span class="token class-name">Human</span> <span class="token punctuation">{</span>
+      name
+      height
+    <span class="token punctuation">}</span>
+    <span class="token operator">...</span> <span class="token keyword">on</span> <span class="token class-name">Droid</span> <span class="token punctuation">{</span>
+      name
+      primaryFunction
+    <span class="token punctuation">}</span>
+    <span class="token operator">...</span> <span class="token keyword">on</span> <span class="token class-name">Starship</span> <span class="token punctuation">{</span>
+      name
+      length
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;data&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;search&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        <span class="token property">&quot;__typename&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Human&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Han Solo&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;height&quot;</span><span class="token operator">:</span> <span class="token number">1.8</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        <span class="token property">&quot;__typename&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Human&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Leia Organa&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;height&quot;</span><span class="token operator">:</span> <span class="token number">1.5</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        <span class="token property">&quot;__typename&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Starship&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;TIE Advanced x1&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;length&quot;</span><span class="token operator">:</span> <span class="token number">9.2</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="输入类型-input-types"><a href="#输入类型-input-types" class="header-anchor">#</a> 输入类型 Input Types</h2> <p>__typename字段解析为字符串，可让您在客户端上区分不同的数据类型。</p> <p>同样，在这种情况下，由于Human和Droid共享一个公共接口（字符），因此您可以在一个地方查询它们的公共字段，而不必在多种类型中重复相同的字段：</p> <div class="language-graphql extra-class"><pre class="language-graphql"><code><span class="token punctuation">{</span>
+  search<span class="token punctuation">(</span><span class="token attr-name">text</span><span class="token punctuation">:</span> <span class="token string">&quot;an&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    __typename
+    <span class="token operator">...</span> <span class="token keyword">on</span> <span class="token class-name">Character</span> <span class="token punctuation">{</span>
+      name
+    <span class="token punctuation">}</span>
+    <span class="token operator">...</span> <span class="token keyword">on</span> <span class="token class-name">Human</span> <span class="token punctuation">{</span>
+      height
+    <span class="token punctuation">}</span>
+    <span class="token operator">...</span> <span class="token keyword">on</span> <span class="token class-name">Droid</span> <span class="token punctuation">{</span>
+      primaryFunction
+    <span class="token punctuation">}</span>
+    <span class="token operator">...</span> <span class="token keyword">on</span> <span class="token class-name">Starship</span> <span class="token punctuation">{</span>
+      name
+      length
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>请注意，名称仍在Starship上指定，因为如果Starship不是角色，否则它不会显示在结果中！</p> <h2 id="输入类型"><a href="#输入类型" class="header-anchor">#</a> 输入类型</h2> <p>到目前为止，我们仅讨论了将标量值（例如枚举或字符串）作为参数传递到字段中。但是您也可以轻松地传递复杂的对象。这在突变的情况下特别有价值，在这种情况下，您可能希望传递要创建的整个对象。在GraphQL模式语言中，输入类型看起来与常规对象类型完全相同，但是使用关键字input而不是type：</p> <div class="language-graphql extra-class"><pre class="language-graphql"><code><span class="token keyword">input</span> ReviewInput <span class="token punctuation">{</span>
+  <span class="token attr-name">stars</span><span class="token punctuation">:</span> Int！
+  <span class="token attr-name">commentarty</span><span class="token punctuation">:</span> String
+<span class="token punctuation">}</span>
+</code></pre></div><p>这是在突变中使用输入对象类型的方法：</p> <div class="language-graphql extra-class"><pre class="language-graphql"><code><span class="token keyword">mutation</span> CreateReviewForEpisode<span class="token punctuation">(</span><span class="token variable">$ep</span><span class="token punctuation">:</span> Episode<span class="token operator">!</span><span class="token punctuation">,</span> <span class="token variable">$review</span><span class="token punctuation">:</span> ReviewInput<span class="token operator">!</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  createReview<span class="token punctuation">(</span><span class="token attr-name">episode</span><span class="token punctuation">:</span> <span class="token variable">$ep</span><span class="token punctuation">,</span> <span class="token attr-name">review</span><span class="token punctuation">:</span> <span class="token variable">$review</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    stars
+    commentary
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+// variable
+<span class="token punctuation">{</span>
+  <span class="token string">&quot;ep&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;JEDI&quot;</span><span class="token punctuation">,</span>
+  <span class="token string">&quot;review&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token string">&quot;stars&quot;</span><span class="token punctuation">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;commentary&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;This is a great movie!&quot;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;data&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;createReview&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;stars&quot;</span><span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;commentary&quot;</span><span class="token operator">:</span> <span class="token string">&quot;This is a great movie!&quot;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>输入对象类型上的字段本身可以引用输入对象类型，但是您不能在架构中混合输入和输出类型。输入对象类型的字段也不能有参数。</p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.12ca0aa8.js" defer></script><script src="/assets/js/2.74bffc86.js" defer></script><script src="/assets/js/185.763d219b.js" defer></script>
+  </body>
+</html>
